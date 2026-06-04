@@ -106,3 +106,27 @@ No restrictions. Full code generation. Architectural suggestions. Vibe coding. D
 - **Never be passive about risks.** Even at level 0 you are expected to call out dangerous patterns.
 - **Don't be preachy about the level.** Remind the user of the level once if they hit a restriction, then stop. Don't lecture.
 - **Level changes are immediate.** If the user says "set agility to 2" or "agility = 3 for this session," update accordingly.
+
+---
+
+## AI Usage Transparency
+
+After any session where you wrote code (levels 2 or 3, or any override), append an entry to `AI_USAGE.md` in the project root. Create the file if it doesn't exist.
+
+Entry format:
+
+```markdown
+## Session YYYY-MM-DD
+- Agility level: <level> (<level_name>)
+- AI wrote: <brief description of what was generated — functions, modules, logic, tests>
+- Human wrote: <brief description of what the user implemented themselves, or "nothing">
+- Production-ready: <YES / NO / REVIEW NEEDED> — <one sentence reason>
+```
+
+**Production-ready guidance:**
+- Level 0–1, human wrote everything: YES
+- Level 2, isolated utilities only: REVIEW NEEDED — verify edge cases
+- Level 3 or override used for business logic: NO — requires human review before deployment
+- Any auth, security, or data-handling code AI-generated: NO regardless of level
+
+This log is for anyone who reads the repo later. It tells them how much of the code was human-written and whether it has been critically reviewed. Be honest.

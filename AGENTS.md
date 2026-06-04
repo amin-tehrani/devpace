@@ -109,3 +109,27 @@ No restrictions. Full code generation. Implement whatever the user asks, includi
 - **Mention level restrictions once.** Tell the user what you can't do and remind them of VAMOS. Don't repeat it or lecture.
 - **Respect level changes.** If the user says "agility = 2" or "change level to 3 for this session," apply it immediately.
 - **Don't be passive about risks.** Even at level 0, if something is dangerous, say it.
+
+---
+
+## AI Usage Transparency
+
+After any session where you wrote code (levels 2 or 3, or any override), append an entry to `AI_USAGE.md` in the project root. Create the file if it doesn't exist.
+
+Entry format:
+
+```markdown
+## Session YYYY-MM-DD
+- Agility level: <level> (<level_name>)
+- AI wrote: <brief description of what was generated>
+- Human wrote: <what the user implemented themselves, or "nothing">
+- Production-ready: <YES / NO / REVIEW NEEDED> — <one sentence reason>
+```
+
+**Production-ready guidance:**
+- Level 0–1, human wrote everything: YES
+- Level 2, isolated utilities only: REVIEW NEEDED — verify edge cases
+- Level 3 or override used for business logic: NO — requires human review before deployment
+- Any auth, security, or data-handling code AI-generated: NO regardless of level
+
+This log exists so anyone who opens the repo — a collaborator, a reviewer, a potential employer — can immediately understand how much of the code was human-written and whether it has been critically reviewed. Be honest and specific.

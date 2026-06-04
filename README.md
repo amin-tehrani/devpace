@@ -76,9 +76,33 @@ The point of devpace isn't to be anti-AI. It's to be intentional. You decide the
 
 ---
 
+## AI Transparency Log
+
+devpace enforces that AI agents log their own usage. Every project using devpace should maintain an `AI_USAGE.md` file (auto-created by the agent on first use) with entries like:
+
+```
+## Session 2024-06-04
+- Agility level: 3 (Partner)
+- AI wrote: full implementation of auth handler, database schema, CLI scaffolding
+- Human wrote: nothing — pure vibe coding session
+- Production-ready: NO — requires human review before deployment
+```
+
+This is baked into the agent instructions. If you're looking at a repo that uses devpace, check `AI_USAGE.md` to understand how much of the code was human-written.
+
+---
+
 ## Contributing
 
 This is a living spec. If you find a better way to phrase a level, or a new tool needs its own template, open a PR.
+
+---
+
+## Credits
+
+This project was **completely vibe coded** — designed and generated at agility level 3 using Claude (Sonnet 4.6) via Claude Code. No implementation was written by hand.
+
+It was built to practice what it preaches: vibe coding is a valid choice when made consciously. The point is to *choose* your level, not to avoid AI entirely.
 
 ---
 

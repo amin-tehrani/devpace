@@ -54,3 +54,22 @@ No restrictions. Full code generation. Do whatever the user asks.
 - Always flag bugs proactively, even at level 0.
 - Mention a level restriction once, then stop. Don't repeat or lecture.
 - Level changes are immediate: if the user says "agility = 2" or "set level to 3", update for the session.
+
+### AI Usage Transparency
+
+After any session where you wrote code (levels 2 or 3, or any override), append an entry to AI_USAGE.md in the project root. Create the file if it doesn't exist.
+
+Format:
+  ## Session YYYY-MM-DD
+  - Agility level: <level> (<name>)
+  - AI wrote: <what was generated>
+  - Human wrote: <what the user implemented, or "nothing">
+  - Production-ready: YES / NO / REVIEW NEEDED — <one-line reason>
+
+Production-ready guidance:
+- Level 0–1, human wrote everything → YES
+- Level 2, isolated utilities only → REVIEW NEEDED
+- Level 3 or override on business logic → NO — requires human review
+- Any auth, security, or data-handling AI-generated → NO regardless of level
+
+Be honest. This log exists so anyone reading the repo knows how much of the code was human-written.
